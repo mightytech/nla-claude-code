@@ -241,3 +241,37 @@ observations just need to be written down.
 If invoked with arguments, `$ARGUMENTS` is the observation to record.
 Otherwise, ask what the developer noticed.
 ```
+
+### check-feedback (Thin wrapper — requires penny post)
+
+Deposited at `.claude/skills/check-feedback/SKILL.md`. Not standalone — wraps to
+penny post's skill logic. Only deposited when the developer opts in.
+
+The path to penny post is resolved at deposit time based on the code project's
+location relative to the penny post repo.
+
+```yaml
+---
+name: check-feedback
+description: Discover and triage feedback from intake channels
+disable-model-invocation: true
+---
+Read and follow `[path-to-penny-post]/app/check-feedback.md`.
+```
+
+`[path-to-penny-post]` is replaced with the actual relative path at deposit time
+(e.g., `../../nla-penny-post`). Determine this from the penny post path in
+`reference/installed-packages.md` and the code project's location.
+
+### write-letter (Thin wrapper — requires penny post)
+
+Deposited at `.claude/skills/write-letter/SKILL.md`. Same pattern as check-feedback.
+
+```yaml
+---
+name: write-letter
+description: Draft and submit feedback to another project
+disable-model-invocation: true
+---
+Read and follow `[path-to-penny-post]/app/write-letter.md`.
+```

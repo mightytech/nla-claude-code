@@ -50,7 +50,7 @@ Summarize what you found. If there's existing Claude Code configuration, present
 - `.claude/skills/code-note/SKILL.md` — codebase observation log
 
 **Ask about (optional):**
-- Penny post wrappers — "Want GitHub issue triage from within this project?"
+- Penny post skills — if penny post is installed (check `reference/installed-packages.md` and verify the path exists), offer feedback capabilities: "Want feedback skills in this project? This adds `/check-feedback` and `/write-letter` — they require penny post to be accessible from the project." If penny post is not installed, skip this offer.
 - Additional convention docs — if the project has complex needs (separate testing conventions, deployment rules, etc.)
 
 ### 4. Generate Convention Content
@@ -77,11 +77,12 @@ project/
 │       └── code-note/SKILL.md         # Codebase observation log
 ```
 
-If penny post was requested, also deposit:
+If penny post was requested and available, also deposit:
 ```
-│       ├── check-feedback/SKILL.md
-│       └── write-letter/SKILL.md
+│       ├── check-feedback/SKILL.md    # Thin wrapper → penny post
+│       └── write-letter/SKILL.md      # Thin wrapper → penny post
 ```
+These are thin wrappers pointing to penny post's skill logic. The path from the code project to penny post is resolved at deposit time. This creates an external dependency — the developer opted in when they said yes.
 
 ### 6. Update the Registry
 

@@ -17,6 +17,8 @@ The NLA also deposits *capabilities* — skills like `/friction-log` and `/code-
 | Setup Project | First-time setup of a code project — scan, import, deposit | `app/setup-project.md` |
 | Manage Project | Ongoing refinement — process friction, update conventions, deposit capabilities | `app/manage-project.md` |
 
+Both tasks have skills (`/setup-project`, `/manage-project`). Manage Project is also triggered conversationally — when the developer names a project or describes a Claude Code behavior problem, CLAUDE.md routes to `app/manage-project.md`.
+
 ## How It Connects
 
 ```
@@ -48,24 +50,32 @@ The improvement cycle:
 | Skill | Purpose | Type |
 |-------|---------|------|
 | `/startup` | Load NLA context at session start | Framework (thin wrapper) |
-| `/maintain` | Edit this NLA's own behavior and patterns | Framework (thin wrapper) |
+| `/maintain` | Edit this NLA's behavior and patterns | Framework (thin wrapper) |
 | `/friction-log` | Log observations about this NLA's behavior | Framework (thin wrapper) |
 | `/validate` | Check system consistency and debug | Framework (thin wrapper) |
-| `/preferences` | Edit user preferences for this NLA | Framework (thin wrapper) |
+| `/preferences` | Edit user preferences | Framework (thin wrapper) |
 | `/install` | Install extension packages | Framework (thin wrapper) |
 | `/update` | Update installed packages | Framework (thin wrapper) |
+| `/check-feedback` | Discover and triage feedback from intake channels | Penny post (thin wrapper) |
+| `/write-letter` | Draft and submit feedback to another project | Penny post (thin wrapper) |
 | `/setup-project` | First-time setup of a code project | Domain skill |
-| `/code-note` | Add a code note to a managed project (from NLA side) | Domain skill |
+| `/manage-project` | Work on a managed project — process friction, update conventions | Domain skill |
+| `/code-note` | Add a code note to a managed project | Domain skill |
 
 ## The Improvement Pipeline
 
-**For the NLA itself:**
-`/friction-log` (NLA observations) → `/maintain` (edit the NLA) → improved patterns and templates
+**NLA friction** (how the NLA itself behaves):
+`/friction-log` in this NLA → `reference/friction-log.md` → `/maintain` processes it → improved patterns and templates
 
-**For managed code projects:**
-`/friction-log` in code project (Claude behavior observations) → conversation in this NLA → improved conventions deposited back
+**Project friction** (how Claude Code behaves in a code project):
+`/friction-log` in code project → project's `reference/friction-log.md` → conversation in this NLA → improved conventions deposited back
 
-Both follow the same pattern: observe → record → process → improve. The friction log is the engine.
+**External feedback** (what others notice):
+External feedback → `reference/feedback-log.md` → `/maintain` processes it → improved NLA docs and patterns
+
+All three follow the same shape: observe → record → process → improve. Friction logs are the primary engine. The feedback log captures observations from outside the immediate development loop.
+
+**Extension packages** (`/install`, `/update`) add new capabilities to the NLA. Installed packages are tracked in `reference/installed-packages.md`.
 
 ## For Humans: Key Workflows
 
@@ -89,6 +99,7 @@ Run `/maintain`. Now you're editing the NLA's patterns, templates, and behavior 
 ```
 app/
 ├── overview.md                    # This file — how the pieces connect
+├── startup.md                     # App-specific initialization (status checks)
 ├── config-spec.md                 # What's configurable in this NLA
 ├── setup-project.md               # First-time project setup task
 ├── manage-project.md              # Ongoing project management task
@@ -101,6 +112,7 @@ app/
 ## Document Index
 
 - [overview.md](overview.md) — How the NLA's pieces connect (this file)
+- [startup.md](startup.md) — App-specific initialization (status checks at session start)
 - [config-spec.md](config-spec.md) — What's configurable
 - [setup-project.md](setup-project.md) — First-time project setup
 - [manage-project.md](manage-project.md) — Ongoing project management

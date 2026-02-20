@@ -29,6 +29,7 @@ This NLA brings NLA capabilities into traditional codebases. It crafts CLAUDE.md
 nla-claude-code/
 ├── app/                              # The application (what the LLM executes)
 │   ├── overview.md                   # How the pieces connect
+│   ├── startup.md                    # App-specific initialization (status checks)
 │   ├── config-spec.md                # What's configurable
 │   ├── setup-project.md              # First-time project setup task
 │   ├── manage-project.md             # Ongoing project management task

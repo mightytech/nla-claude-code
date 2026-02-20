@@ -64,13 +64,16 @@ Config directives are governed by `app/config-spec.md`, which defines what's con
 |-------|---------|------------|
 | `/startup` | Load NLA context at session start | Beginning of session, or when context feels stale |
 | `/setup-project` | First-time setup of a code project | When managing a new codebase |
+| `/manage-project` | Work on a managed project — process friction, update conventions | When refining an existing project's config |
 | `/code-note` | Add a code note to a managed project | When noting something about a managed codebase |
 | `/maintain` | Edit this NLA's behavior and patterns | When improving the NLA itself |
-| `/friction-log` | Log observations about this NLA | When something about the NLA works well or poorly |
-| `/validate` | Check system consistency | When verifying the NLA works as documented |
+| `/friction-log` | Log observations about this NLA's behavior | When something about the NLA works well or poorly |
+| `/validate` | Check system consistency and debug | When verifying the NLA works as documented |
 | `/preferences` | Edit user preferences | When personalizing NLA behavior |
 | `/install` | Install extension packages | When adding new capabilities |
 | `/update` | Update installed packages | When checking for package updates |
+| `/check-feedback` | Discover and triage feedback from intake channels | After maintenance sessions, or periodically |
+| `/write-letter` | Draft and submit feedback to another project | When learnings from maintenance are worth sharing |
 
 ### If the developer names a project path:
 → Check `reference/managed-projects.md` — if known, enter management conversation. If new, suggest `/setup-project`.
@@ -114,6 +117,7 @@ This NLA uses the NLA Framework at `../nla-framework/`.
 | `config.md` | User preferences (gitignored) |
 | `config/` | Sub-config files (gitignored) |
 | `../nla-framework/core/skills/` | Framework skill logic (thin wrappers delegate here) |
+| `../nla-penny-post/` | Penny post — feedback conventions and skills |
 
 ---
 

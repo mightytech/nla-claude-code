@@ -16,7 +16,7 @@ The developer may:
 - Ask for a specific change ("add testing conventions to the Rust project")
 - Request friction log processing ("what's in the friction log for my-app?")
 
-If no project is specified and multiple projects are managed, ask which one.
+If no project is specified and multiple projects are managed, ask which one. If no projects are managed yet, suggest running `/setup-project` first.
 
 ## Prerequisites
 
@@ -24,6 +24,7 @@ Read before executing:
 1. `app/shared/voice-and-values.md` — how we write and what we value
 2. `app/shared/common-patterns.md` — especially "Convention Docs Explain Why"
 3. `reference/managed-projects.md` — which projects are managed and their state
+4. `app/shared/deposit-templates.md` — if depositing new files or capabilities
 
 Then read the target project's current configuration:
 - Its `CLAUDE.md`

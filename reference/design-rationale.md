@@ -68,9 +68,19 @@ Code notes (`/code-note`) demonstrate that this NLA deposits capabilities, not j
 
 ### Penny Post as Optional
 
-**Decision:** Penny post integration is offered during setup, not included by default.
+**Decision:** Penny post integration is offered during setup, not included by default. The offer is conditional — only shown when penny post is actually installed in this NLA.
 
-**Why:** Not every project needs GitHub issue triage. Solo projects especially may not. Offering it as an option keeps the base deposit clean while making the capability available.
+**Why:** Not every project needs GitHub issue triage. Solo projects especially may not. Offering it as an option keeps the base deposit clean while making the capability available. Making the offer conditional on availability prevents referencing something that doesn't exist.
+
+### Opt-in Dependencies for Deposited Skills
+
+**Decision:** Core deposits (friction-log, code-note) are standalone — they work without any external dependencies. Optional deposits like penny post skills may have external dependencies when the developer opts in.
+
+**Why:** Penny post skills need penny post's logic to function — you can't make GitHub issue triage standalone in a meaningful way. The developer is told what the dependency is, they decide whether to accept it, and if they say yes, the thin wrappers go in. The NLA resolves paths at deposit time. This preserves the standalone principle for the base experience while allowing richer capabilities for developers who want them.
+
+**Alternative:** Make all deposits standalone (copy penny post logic into each project). Rejected because it would create duplicated logic that drifts out of sync, and updating penny post would require re-depositing to every project.
+
+**Affects:** `app/setup-project.md` (conditional offer), `app/shared/deposit-templates.md` (thin wrapper templates), deposited skill files in code projects.
 
 ## Adding Decisions
 
