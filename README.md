@@ -1,6 +1,6 @@
 # nla-claude-code
 
-An NLA that manages how Claude Code behaves in your code projects. Built on the [NLA Framework](https://github.com/your-org/nla-framework).
+An NLA that manages how Claude Code behaves in your code projects. Built on the [NLA Framework](https://github.com/mightytech/nla-framework).
 
 ## What It Does
 
