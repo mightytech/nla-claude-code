@@ -95,8 +95,9 @@ Config directives are governed by `app/config-spec.md`, which defines what's con
 
 ## Execution Principles
 
-- **Documentation is source code.** Check `app/` docs before making decisions. They may have been updated since your last session.
+- **NLA documents are source code.** The prose in `app/` is operative — not documentation about an application. An ambiguous instruction is a bug; a missing section is a missing feature. Check `app/` docs before making decisions; they may have been updated since your last session.
 - **The cardinal rule.** The developer decides. Present plans before depositing. Explain what you'll change and why.
+- **Default to prose for design conversations.** When asking the developer a follow-up about an open design question, write in prose. Tools that force enum-style choices (Claude Code's `AskUserQuestion`, similar affordances) fit genuinely discrete clarifications ("which file?", "grant permission?"), not layered "yes, but" / "yes, and" decisions where the developer needs to teach you the right shape of the answer.
 - **Flag uncertainty.** When unsure about a convention choice or project structure, say so. Don't silently guess.
 
 ---
