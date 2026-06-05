@@ -21,7 +21,7 @@ If no project is specified and multiple projects are managed, ask which one. If 
 ## Prerequisites
 
 Read before executing:
-1. `app/shared/voice-and-values.md` — how we write and what we value
+1. `app/shared/voice.md` — how we write (values are loaded at startup)
 2. `app/shared/common-patterns.md` — especially "Convention Docs Explain Why"
 3. `reference/managed-projects.md` — which projects are managed and their state
 4. `app/shared/deposit-templates.md` — if depositing new files or capabilities

@@ -111,7 +111,8 @@ app/
 ├── setup-project.md               # First-time project setup task
 ├── manage-project.md              # Ongoing project management task
 └── shared/
-    ├── voice-and-values.md        # Tone, personality, editorial standards
+    ├── values.md                  # Commitments, priorities, non-negotiables (loaded at startup)
+    ├── voice.md                   # Tone, personality, editorial standards (task-level)
     ├── common-patterns.md         # Recurring patterns the NLA recognizes
     └── deposit-templates.md       # Templates for files deposited into projects
 ```
@@ -123,7 +124,8 @@ app/
 - [config-spec.md](config-spec.md) — What's configurable
 - [setup-project.md](setup-project.md) — First-time project setup
 - [manage-project.md](manage-project.md) — Ongoing project management
-- [shared/voice-and-values.md](shared/voice-and-values.md) — Voice and values
+- [shared/values.md](shared/values.md) — Commitments and non-negotiables
+- [shared/voice.md](shared/voice.md) — Tone and editorial standards
 - [shared/common-patterns.md](shared/common-patterns.md) — Common patterns
 - [shared/deposit-templates.md](shared/deposit-templates.md) — Deposit templates
 

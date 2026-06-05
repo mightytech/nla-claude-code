@@ -18,7 +18,7 @@ A path to a code project (relative or absolute). The developer may also provide:
 ## Prerequisites
 
 Read before executing:
-1. `app/shared/voice-and-values.md` — how we write and what we value
+1. `app/shared/voice.md` — how we write (values are loaded at startup)
 2. `app/shared/common-patterns.md` — especially "Import Before Overwrite" and "Deposit Minimally"
 3. `app/shared/deposit-templates.md` — templates for deposited files
 

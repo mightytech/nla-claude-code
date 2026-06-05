@@ -34,7 +34,8 @@ nla-claude-code/
 │   ├── setup-project.md              # First-time project setup task
 │   ├── manage-project.md             # Ongoing project management task
 │   └── shared/
-│       ├── voice-and-values.md       # Tone and editorial standards
+│       ├── values.md                 # Commitments and non-negotiables
+│       ├── voice.md                  # Tone and editorial standards
 │       ├── common-patterns.md        # Patterns the NLA recognizes
 │       └── deposit-templates.md      # Templates for deposited files
 ├── reference/                        # Maintenance records
@@ -62,7 +63,8 @@ nla-claude-code/
 
 | File | What to Customize |
 |------|-------------------|
-| `app/shared/voice-and-values.md` | How the NLA communicates and what it values |
+| `app/shared/values.md` | Commitments and non-negotiables |
+| `app/shared/voice.md` | How the NLA communicates |
 | `app/shared/common-patterns.md` | Patterns the NLA recognizes (grows through use) |
 | `app/shared/deposit-templates.md` | Templates for files deposited into projects |
 | `app/setup-project.md` | What happens during first-time project setup |
