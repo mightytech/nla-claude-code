@@ -2,7 +2,7 @@
 
 Current state of nla-claude-code.
 
-**Last updated:** 2026-02-19
+**Last updated:** 2026-06-05
 
 ## Tasks
 
@@ -22,6 +22,13 @@ Current state of nla-claude-code.
 | `/preferences` | Active | Framework thin wrapper |
 | `/install` | Active | Framework thin wrapper |
 | `/update` | Active | Framework thin wrapper |
+| `/check-updates` | Active | Framework thin wrapper |
+| `/think` | Active | Framework thin wrapper |
+| `/debrief` | Active | Framework thin wrapper |
+| `/close` | Active | Framework thin wrapper |
+| `/session-checkpoint` | Active | Framework thin wrapper |
+| `/guide` | Active | Framework thin wrapper |
+| `/export` | Active | Framework thin wrapper |
 | `/setup-project` | Active | Domain skill — first-time project setup |
 | `/manage-project` | Active | Domain skill — ongoing project management |
 | `/code-note` | Active | Domain skill — add code note to managed project |
@@ -43,3 +50,4 @@ None yet. Run `/setup-project` to add the first one.
 
 - 2026-02-19: Initial creation of nla-claude-code
 - 2026-02-19: First maintenance session — architecture review, all findings resolved. Added `/manage-project` skill, installed penny post, created `app/startup.md`, expanded overview pipelines, aligned skill tables.
+- 2026-06-05: Framework update session. Migrated to `packages/` submodule layout (framework pinned v0.0.12, penny-post v0.0.1). Added seven framework skills as thin wrappers: `/check-updates`, `/think`, `/debrief`, `/close`, `/session-checkpoint`, `/guide`, `/export`.

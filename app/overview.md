@@ -56,6 +56,13 @@ The improvement cycle:
 | `/preferences` | Edit user preferences | Framework (thin wrapper) |
 | `/install` | Install extension packages | Framework (thin wrapper) |
 | `/update` | Update installed packages | Framework (thin wrapper) |
+| `/check-updates` | Scan for available updates without applying them | Framework (thin wrapper) |
+| `/think` | Collaborative design exploration before planning | Framework (thin wrapper) |
+| `/debrief` | Reflect on completed work while context is fresh | Framework (thin wrapper) |
+| `/close` | Wrap up a session — finalize log, check loose ends | Framework (thin wrapper) |
+| `/session-checkpoint` | Mid-session save point — preserve state, refresh context | Framework (thin wrapper) |
+| `/guide` | Context-aware help — orient to how the NLA works | Framework (thin wrapper) |
+| `/export` | Export this NLA as a plugin | Framework (thin wrapper) |
 | `/check-feedback` | Discover and triage feedback from intake channels | Penny post (thin wrapper) |
 | `/write-letter` | Draft and submit feedback to another project | Penny post (thin wrapper) |
 | `/setup-project` | First-time setup of a code project | Domain skill |

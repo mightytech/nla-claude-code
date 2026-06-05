@@ -72,6 +72,13 @@ Config directives are governed by `app/config-spec.md`, which defines what's con
 | `/preferences` | Edit user preferences | When personalizing NLA behavior |
 | `/install` | Install extension packages | When adding new capabilities |
 | `/update` | Update installed packages | When checking for package updates |
+| `/check-updates` | Scan for available updates without applying them | When you want to see what's changed upstream before pulling |
+| `/think` | Collaborative design exploration before planning | When work involves design judgment, unfamiliar territory, or multiple valid approaches |
+| `/debrief` | Reflect on completed work while context is fresh | At task transitions, after substantive work |
+| `/close` | Wrap up a session — finalize log, check loose ends | When a session is ending or handing off |
+| `/session-checkpoint` | Mid-session save point — preserve state, refresh context | Between work phases or before reasoning from files read long ago |
+| `/guide` | Context-aware help — orient to how the NLA works | When you want orientation or help understanding the system |
+| `/export` | Export this NLA as a plugin for Claude Code or Cowork | When you're ready to distribute this NLA |
 | `/check-feedback` | Discover and triage feedback from intake channels | After maintenance sessions, or periodically |
 | `/write-letter` | Draft and submit feedback to another project | When learnings from maintenance are worth sharing |
 
