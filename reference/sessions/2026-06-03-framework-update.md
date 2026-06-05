@@ -1,7 +1,7 @@
 # Maintenance Session: Framework Update — 0fc339b → 945f533
 
-**Date:** 2026-06-03
-**Status:** In Progress
+**Date:** 2026-06-03 (opened) → 2026-06-05 (completed)
+**Status:** Complete
 
 ## Intent
 
@@ -31,16 +31,87 @@ the next session can build from.
 
 ## What Didn't Work
 
-(populated as work proceeds)
+- Nothing structural — every approved item landed cleanly. The post-implementation validation
+  pass surfaced surface-level issues (overlapping sections in `overview.md`, double-framing in
+  `CLAUDE.md`), all of which were small enough to fix in the same session. No item required
+  rollback or major rework.
 
 ## Friction Log Entries Processed
 
-None — the friction log is empty.
+None — the friction log was empty at session open and remains empty at close.
 
 ## Debrief
 
-(captured at session close)
+Five participant-observer observations from this session, prioritized by impact:
+
+1. **"All of it, in sequence" held up under a 3-month update window.** Proposal-per-item
+   cadence, sequential dependency chain (migration first, six items stacking on top), and
+   clean commit-per-item shape preserved context across 7 commits and 23 files. Risk I was
+   bracing for (thread-loss after item 4-5) didn't materialize. Sent upstream as part of
+   framework [#29](https://github.com/mightytech/nla-framework/issues/29).
+
+2. **Lapsed on the "default to prose for design conversations" principle in the same session
+   that landed it.** Reached for `AskUserQuestion` reflexively for decision points until the
+   user pushed back ("I'd like your take on the various options"). The principle's trigger
+   wording ("open design question") didn't fire reliably; the actual lapse occurred at
+   "decision point." Not actioned in this session — the framework is aware upstream, and
+   strengthening the trigger from one data point would risk over-correction.
+
+3. **Architecture + coherence review caught what I'd quietly let through during authoring.**
+   The `overview.md` overlap with the new Where Things Live section was visible to me when I
+   wrote it. The `values.md` "Who We Are" near-duplicate was visible when I drafted it. Review
+   surfaced both. Lesson: when I notice a structural overlap during authoring and choose not
+   to flag it, that's the same rationalization that produces the redundancy review will catch.
+
+4. **The `/update` Phase 1 / Phase 2 protocol felt mismatched to a dormant-project case.**
+   Phase 1 reported "0 ahead, 0 behind" — meaningless without Phase 2's "121 commits since
+   install" signal. Phase 1's "mechanical, no judgment" framing accurately describes what it
+   does but doesn't surface that its output isn't the primary signal for dormancy diagnosis.
+   Sent upstream as the negative side of framework [#29](https://github.com/mightytech/nla-framework/issues/29).
+
+5. **`/session-checkpoint` shipped without a dedicated update note.** Caught only because I
+   cross-referenced canonical `install/skills-intent.md` against this project's wrappers. A
+   more procedural `/update` flow would miss it. Sent upstream as framework
+   [#30](https://github.com/mightytech/nla-framework/issues/30) — recommending either an
+   author-time convention (new skill → required update-notes entry) or a skill-time backstop
+   (`/update` cross-references skills-intent against consumer wrappers).
+
+Letters submitted: framework #29 (combined #1 + #4 — protocol works under dormancy but
+phase order doesn't surface dormancy as primary signal), framework #30 (#5 —
+`/session-checkpoint` missing update note, backstop convention needed). Observation #2 left
+in this log; it's framework-level material the upstream is already aware of.
 
 ## State at Close
 
-(captured at session close)
+### Context for next time
+
+- Framework state: pinned at v0.0.12 (commit `c3e3e08`). HEAD when pinned was 2 commits
+  past (session-log finalizations, not behavioral). Penny-post pinned at v0.0.1.
+- All 19 skills wired, all wrapper targets resolve, all skills tables synchronized.
+- `app/shared/values.md` is now startup-loaded infrastructure; `app/shared/voice.md` is
+  task-level. Document hierarchy collapsed — Where Things Live is the project-wide structure
+  record; older Document Hierarchy block removed.
+- Eight commits this session: `1a4accd`, `d953253`, `2ecb1df`, `4d80fac`, `6f5a881`,
+  `4bac16c`, `c23c68a`, plus the README mirror fix and session-log finalization to come.
+- Letters #29 and #30 outbound to the framework — watch for triage verdicts under
+  `/check-feedback`.
+
+### Decisions awaiting implementation
+
+- **`reference/managed-projects.md`** — your in-progress AMG Source registration is still
+  uncommitted. Out of this update's scope; decide when to land it. Related: the deposited
+  penny-post wrappers in `../test-nla-claude-code/` still point at the workspace sibling
+  rather than `packages/nla-penny-post/`. Re-depositing would align that managed project
+  with this NLA's new layout — small but real follow-up.
+- **`/code-review` ultra wasn't run.** Optional. The architecture + coherence pass found
+  what it would have; not strictly needed.
+
+### Where to pick up
+
+- This session is push-ready pending the user's go-ahead. The session touched consumer-facing
+  content (`CLAUDE.md`, `app/`, `.claude/skills/`); per the framework's per-push tag-cadence
+  convention, the next push tags HEAD.
+- If the framework triages #29 or #30 quickly, expect to see a verdict in `/check-feedback`.
+- Future `/update` sessions in this project should benefit from a calmer state — wrappers
+  current, intent files synthesized, the structure record giving placement decisions a
+  consultation target.

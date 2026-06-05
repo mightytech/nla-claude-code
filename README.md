@@ -56,6 +56,7 @@ nla-claude-code/
 │   ├── nla-framework/                # NLA Framework (core skills, foundations)
 │   └── nla-penny-post/               # Penny Post (feedback intake + letters)
 ├── CLAUDE.md                         # Runtime identity
+├── .gitmodules                       # Submodule pointers (framework, penny-post)
 └── .gitignore
 ```
 
