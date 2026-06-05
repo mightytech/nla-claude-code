@@ -106,7 +106,7 @@ Config directives are governed by `app/config-spec.md`, which defines what's con
 
 ## Environment
 
-This NLA uses the NLA Framework at `../nla-framework/`.
+This NLA uses the NLA Framework at `packages/nla-framework/`.
 
 | Path | Purpose |
 |------|---------|
@@ -116,8 +116,8 @@ This NLA uses the NLA Framework at `../nla-framework/`.
 | `.claude/skills/` | Skill wrappers — framework (thin) and domain (self-contained) |
 | `config.md` | User preferences (gitignored) |
 | `config/` | Sub-config files (gitignored) |
-| `../nla-framework/core/skills/` | Framework skill logic (thin wrappers delegate here) |
-| `../nla-penny-post/` | Penny post — feedback conventions and skills |
+| `packages/nla-framework/core/skills/` | Framework skill logic (thin wrappers delegate here) |
+| `packages/nla-penny-post/` | Penny post — feedback conventions and skills |
 
 ---
 

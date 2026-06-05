@@ -260,8 +260,9 @@ Read and follow `[path-to-penny-post]/app/check-feedback.md`.
 ```
 
 `[path-to-penny-post]` is replaced with the actual relative path at deposit time
-(e.g., `../../nla-penny-post`). Determine this from the penny post path in
-`reference/installed-packages.md` and the code project's location.
+(e.g., `../../nla-claude-code/packages/nla-penny-post`). Determine this from the
+penny post path in `reference/installed-packages.md` and the code project's
+location.
 
 ### write-letter (Thin wrapper — requires penny post)
 

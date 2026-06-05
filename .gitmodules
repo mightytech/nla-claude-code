@@ -1,0 +1,6 @@
+[submodule "packages/nla-framework"]
+	path = packages/nla-framework
+	url = https://github.com/mightytech/nla-framework.git
+[submodule "packages/nla-penny-post"]
+	path = packages/nla-penny-post
+	url = https://github.com/mightytech/nla-penny-post.git

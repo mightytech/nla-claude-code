@@ -11,7 +11,7 @@ This NLA brings NLA capabilities into traditional codebases. It crafts CLAUDE.md
 ## Prerequisites
 
 - [Claude Code](https://claude.ai/code) installed
-- NLA Framework at `../nla-framework/`
+- Clone with submodules: `git clone --recurse-submodules <url>` (or run `git submodule update --init` after a plain clone)
 
 ## Quick Start
 
@@ -51,6 +51,9 @@ nla-claude-code/
 ├── config/                           # Sub-config files (gitignored)
 ├── lib/                              # Traditional code helpers
 ├── .claude/skills/                   # Skills (framework wrappers + domain skills)
+├── packages/                         # Installed package submodules
+│   ├── nla-framework/                # NLA Framework (core skills, foundations)
+│   └── nla-penny-post/               # Penny Post (feedback intake + letters)
 ├── CLAUDE.md                         # Runtime identity
 └── .gitignore
 ```
@@ -83,4 +86,4 @@ The NLA can deposit more than just CLAUDE.md configuration. Any skill or tool th
 
 ## Framework Updates
 
-The NLA Framework lives at `../nla-framework/`. Run `git pull` there to get framework updates — thin wrapper skills pick up changes automatically. Run `/update` to check for and apply package updates.
+The NLA Framework lives at `packages/nla-framework/` as a git submodule. Run `/check-updates` to see what's available upstream and `/update` to apply changes — `/update` fetches, fast-forwards (or pins at a chosen tag), and applies any intent-file changes to this project.

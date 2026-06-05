@@ -82,6 +82,29 @@ Code notes (`/code-note`) demonstrate that this NLA deposits capabilities, not j
 
 **Affects:** `app/setup-project.md` (conditional offer), `app/shared/deposit-templates.md` (thin wrapper templates), deposited skill files in code projects.
 
+### Migrated to packages/ submodules (2026-06-05)
+
+**Decision:** Replace the sibling-directory dependency model (`../nla-framework/`,
+`../nla-penny-post/`) with in-project git submodules at `packages/nla-framework/`
+and `packages/nla-penny-post/`. Pinned to tagged releases (framework v0.0.12,
+penny-post v0.0.1).
+
+**Why:** Framework convention as of 2026-04-15 — eliminates cross-directory
+permission prompts, version-pins each dependency at a known commit, makes the
+project self-contained for cloning. The 2-3 commits past each tag are session-log
+finalizations, not new behavior; the tagged release is the explicit consumer
+release marker.
+
+**Alternative:** Stay on sibling layout. Rejected because new framework affordances
+(and `/update` itself in package-aware mode) increasingly assume the packages/
+layout. The longer the gap, the more the divergence compounds.
+
+**Affects:** Every thin wrapper in `.claude/skills/*/SKILL.md`, `CLAUDE.md`,
+`README.md`, `app/config-spec.md`, `app/shared/deposit-templates.md`,
+`reference/installed-packages.md`. Permission entries in
+`.claude/settings.local.json` for cross-directory reads are now redundant
+(refreshed in a follow-up item).
+
 ## Adding Decisions
 
 When making significant design choices during `/maintain`, add them here:

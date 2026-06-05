@@ -6,15 +6,14 @@ Record of NLA packages installed in this project. Maintained by `/install` and `
 
 ## NLA Framework
 
+**Source:** `packages/nla-framework/` (from https://github.com/mightytech/nla-framework.git)
 - **Installed:** 2026-02-19
 - **State at install:** commit `0fc339b` (2026-02-19)
 - **What was done:** Initial project creation via `/create-app`. Framework provides core skill logic (startup, maintain, friction-log, validate, preferences, install, update) via thin wrappers.
-- **Updates:**
-  [None yet — run `/update` to check for framework changes]
 
 ## Penny Post
 
-**Source:** `../nla-penny-post/`
+**Source:** `packages/nla-penny-post/` (from https://github.com/mightytech/nla-penny-post.git)
 **Installed:** 2026-02-19
 **Package state:** commit `9186c5a` (2026-02-19)
 

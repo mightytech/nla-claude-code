@@ -35,7 +35,7 @@ What gets deposited into code projects by default during `/setup-project`.
 
 ### Framework Path
 
-- **Framework location** — path to the NLA Framework. Default: `../nla-framework/`
+- **Framework location** — path to the NLA Framework. Default: `packages/nla-framework/` (the in-project submodule).
 
 ## Constraints
 
