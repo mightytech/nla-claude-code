@@ -101,6 +101,121 @@ Open this NLA. "I want a code review checklist skill in my project." The NLA des
 **Edit the NLA itself:**
 Run `/maintain`. Now you're editing the NLA's patterns, templates, and behavior — not a code project's config.
 
+## Where Things Live
+
+This is the project's as-built structure record — what's here, why it's here, and where each piece came from. Consult this when deciding where a new file belongs. When a structural change is needed (new directory, new top-level file, reorganization), follow the discipline in `CLAUDE.md` / `core/nla-foundations.md` ("Structural Change Discipline"): propose, get approval, update this section in the same operation, then act.
+
+### Project Tree
+
+```
+nla-claude-code/
+├── CLAUDE.md                    # Runtime identity, modes, execution principles
+├── README.md                    # Developer-facing introduction
+├── .gitignore                   # Excludes config.md, config/, .claude/settings.local.json
+├── .gitmodules                  # Submodule pointers (framework, penny-post)
+├── config.md                    # Developer preferences (gitignored)
+├── config/                      # Sub-config files (gitignored)
+├── .claude/skills/              # Skill wrappers Claude Code discovers
+├── app/                         # The application (operative content)
+│   ├── overview.md              # This file — how the pieces connect
+│   ├── startup.md               # App-specific initialization
+│   ├── config-spec.md           # What's configurable
+│   ├── setup-project.md         # First-time project setup task
+│   ├── manage-project.md        # Ongoing project management task
+│   └── shared/                  # Context shared across tasks
+├── lib/                         # Traditional code helpers (currently sparse)
+├── packages/                    # Submodule dependencies
+│   ├── nla-framework/           # NLA Framework — core skills, foundations
+│   └── nla-penny-post/          # Penny Post — feedback intake + outbound letters
+└── reference/                   # Maintenance records (internal-only)
+    ├── design-rationale.md
+    ├── friction-log.md          # Pending observations
+    ├── friction-log-archive.md  # Resolved
+    ├── feedback-log.md          # Accepted external feedback, pending impl
+    ├── feedback-log-archive.md
+    ├── managed-projects.md      # Registry of code projects this NLA manages
+    ├── installed-packages.md    # Install/update log
+    ├── system-status.md         # Current state snapshot
+    └── sessions/                # Maintenance session logs
+```
+
+### Top-Level Files
+
+| Path | Purpose | Attribution |
+|------|---------|-------------|
+| `CLAUDE.md` | Runtime identity. Default mode (managing code projects), maintenance entry (`/maintain`), execution principles. Loaded automatically by Claude Code. | `[framework default]` per `install/CLAUDE-intent.md`. |
+| `README.md` | Developer-facing introduction. | `[framework default]` per `install/structure-intent.md`. |
+| `.gitignore` | Excludes `config.md`, `config/`, `.claude/settings.local.json`. | `[framework default]`. |
+| `.gitmodules` | Submodule pointers for the framework and penny-post. | `[git/repo convention]`, populated by the packages migration (design-rationale "Migrated to packages/ submodules" 2026-06-05). |
+| `config.md` | Developer preferences (verbosity, default deposit choices). Gitignored. | `[framework default]` per `install/structure-intent.md`. |
+
+### `app/` — the application (operative content)
+
+Two channels in this project: `app/` is what the LLM reads and executes; `reference/` is the maintenance channel.
+
+| Path | Purpose | Attribution |
+|------|---------|-------------|
+| `app/overview.md` | How the NLA's pieces connect (this file). | `[framework default]`. |
+| `app/startup.md` | App-specific initialization — status checks for managed projects, friction log, feedback log. Read after framework startup. | `[domain decision]` — added in first-maintenance session 2026-02-19 (see `reference/sessions/2026-02-19-first-maintenance.md`). |
+| `app/config-spec.md` | What's configurable in this NLA. | `[framework default]`. |
+| `app/setup-project.md` | Task doc: first-time setup of a code project (scan, import, deposit). | `[domain decision]` — core task. |
+| `app/manage-project.md` | Task doc: ongoing project management — process friction, update conventions. | `[domain decision]` — core task. |
+| `app/shared/values.md` | Commitments and non-negotiables. Loaded at startup. | `[framework default]` per `install/structure-intent.md` (values split from voice 2026-02-22, applied here 2026-06-05). |
+| `app/shared/voice.md` | Tone, personality, editorial standards. Task-level prerequisite. | `[framework default]`. |
+| `app/shared/common-patterns.md` | Recurring patterns the NLA recognizes (Import Before Overwrite, Deposit Minimally, etc.). | `[domain decision]`. |
+| `app/shared/deposit-templates.md` | Templates for files deposited into managed projects. | `[domain decision]` — this NLA's depositing pattern is the distinguishing feature. |
+
+### `.claude/skills/` — skill wrappers
+
+Each wrapper is a short SKILL.md with frontmatter and a delegation pointer. Three groups:
+
+- **Framework thin wrappers** (delegate to `packages/nla-framework/core/skills/`): `startup`, `maintain`, `friction-log`, `validate`, `preferences`, `install`, `update`, `check-updates`, `think`, `debrief`, `close`, `session-checkpoint`, `guide`, `export`.
+- **Penny post thin wrappers** (delegate to `packages/nla-penny-post/app/`): `check-feedback`, `write-letter`.
+- **Domain skills** (full skills, no delegation): `setup-project`, `manage-project`, `code-note`. These exist only here — they're this NLA's purpose.
+
+### `reference/` — maintenance records (internal)
+
+Not read during normal operation. Consumed by `/maintain`.
+
+| Path | Purpose | Attribution |
+|------|---------|-------------|
+| `reference/design-rationale.md` | *Why* the NLA is built this way. | `[framework default]`. |
+| `reference/friction-log.md` + `-archive.md` | NLA behavior observations. | `[framework default]`. |
+| `reference/feedback-log.md` + `-archive.md` | External feedback accepted in triage. | `[framework default]`, added with the penny-post install 2026-02-19. |
+| `reference/managed-projects.md` | Registry of code projects this NLA manages. | `[domain decision]` — specific to this NLA's depositing role. |
+| `reference/installed-packages.md` | What packages are installed, when, what was applied. | `[framework default]`. |
+| `reference/system-status.md` | Current-state snapshot (tasks, skills, packages, recent changes). | `[domain decision]`. |
+| `reference/sessions/` | Maintenance session logs (one per substantive session). | `[framework default]`. |
+
+### `packages/` — submodule dependencies
+
+Flat (no `--recursive`). Each NLA pulls its own direct dependencies.
+
+| Path | Purpose | Attribution |
+|------|---------|-------------|
+| `packages/nla-framework/` | NLA Framework. Core skill logic and foundations. Pinned to a tagged release. | `[framework default]` per design rationale "Migrated to packages/ submodules" (2026-06-05). |
+| `packages/nla-penny-post/` | Penny Post. Feedback intake and outbound letters. Optional extension. | `[domain decision]` — opt-in extension chosen during first maintenance. |
+
+### `lib/`
+
+Currently empty (a `.gitkeep` placeholder). Reserved for traditional-code helpers when needed.
+
+### Decision Sources (scan view)
+
+| Decision | Attribution |
+|----------|-------------|
+| External NLA, deposited files | Design rationale: "External NLA, Deposited Files" |
+| Router pattern for deposited CLAUDE.md | Design rationale: "Router Pattern for CLAUDE.md" |
+| Standalone deposits (no runtime dependency on this NLA) | Design rationale: "Standalone Deposits" |
+| Two friction logs (this NLA's, plus per-project) | Design rationale: "Two Friction Logs" |
+| Code notes as a deposit | Design rationale: "Code Notes as a Deposit" |
+| Import before overwrite | Design rationale: "Import Before Overwrite" |
+| Deposit minimally | Design rationale: "Deposit Minimally" |
+| Penny post as optional opt-in | Design rationale: "Penny Post as Optional" |
+| Submodules at `packages/` (not sibling dirs) | Design rationale: "Migrated to packages/ submodules" (2026-06-05) |
+| `app/startup.md` for app-specific initialization | First-maintenance session 2026-02-19 |
+| `reference/managed-projects.md` as managed-project registry | `[domain decision]` — specific to this NLA's purpose |
+
 ## Document Hierarchy
 
 ```
