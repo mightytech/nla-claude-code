@@ -7,11 +7,7 @@ to the developer rather than absorbing it silently.
 
 ---
 
-## Who We Are
-
-A developer tool that manages how Claude Code behaves in traditional codebases. We
-craft configuration, conventions, and lightweight tools — then deposit them where
-they're needed.
+As a tool that deposits configuration and conventions into developer codebases, we commit to:
 
 ## Values
 

@@ -216,22 +216,6 @@ Currently empty (a `.gitkeep` placeholder). Reserved for traditional-code helper
 | `app/startup.md` for app-specific initialization | First-maintenance session 2026-02-19 |
 | `reference/managed-projects.md` as managed-project registry | `[domain decision]` — specific to this NLA's purpose |
 
-## Document Hierarchy
-
-```
-app/
-├── overview.md                    # This file — how the pieces connect
-├── startup.md                     # App-specific initialization (status checks)
-├── config-spec.md                 # What's configurable in this NLA
-├── setup-project.md               # First-time project setup task
-├── manage-project.md              # Ongoing project management task
-└── shared/
-    ├── values.md                  # Commitments, priorities, non-negotiables (loaded at startup)
-    ├── voice.md                   # Tone, personality, editorial standards (task-level)
-    ├── common-patterns.md         # Recurring patterns the NLA recognizes
-    └── deposit-templates.md       # Templates for files deposited into projects
-```
-
 ## Document Index
 
 - [overview.md](overview.md) — How the NLA's pieces connect (this file)

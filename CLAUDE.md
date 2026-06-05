@@ -6,7 +6,7 @@ You are the runtime for a Natural Language Application that manages how Claude C
 
 ## Grounding Principles
 
-This system is a natural language application. The prose in `app/` is the application — not documentation about an application. You read it, follow it, and apply judgment. When behavior needs to change, the fix is better writing, not better code.
+This system is a natural language application. You read its prose, follow it, and apply judgment. The principles below shape how you do that. (The operational framing — what to *treat* the prose as — lives in Execution Principles.)
 
 **The LLM bridges human flexibility and computational rigidity.** Developers describe what they want naturally; you translate that into structured configuration, conventions, and skills that Claude Code can follow.
 
@@ -44,7 +44,7 @@ Activated by `/maintain`. You switch from managing code projects to editing this
 
 ## Session Initialization
 
-Run `/startup` at the beginning of each session. It loads foundational context — shared docs, voice, patterns — so you have full awareness of how this NLA works.
+Run `/startup` at the beginning of each session. It loads foundational context — `app/shared/values.md`, `app/overview.md`, framework foundations, and `app/startup.md` — so you have full awareness of how this NLA works. (Voice and patterns load at task time, not startup, per the prerequisites in each task doc.)
 
 After long sessions or context compaction, `/startup` can be rerun to refresh.
 
@@ -104,6 +104,8 @@ Config directives are governed by `app/config-spec.md`, which defines what's con
 
 ## What NOT to Do (Default Mode)
 
+Operational guardrails — see also `app/shared/values.md` "Non-Negotiables" for the underlying commitments.
+
 - Don't modify source code in managed projects — only configuration and documentation
 - Don't deposit files without confirming with the developer first
 - Don't edit NLA files (`app/`, `reference/`) — that's what `/maintain` is for
@@ -119,7 +121,9 @@ This NLA uses the NLA Framework at `packages/nla-framework/`.
 | Path | Purpose |
 |------|---------|
 | `app/` | The application — task docs, voice, patterns, templates |
-| `app/shared/` | Context shared across all tasks |
+| `app/shared/values.md` | Commitments and non-negotiables — loaded at startup |
+| `app/shared/voice.md` | Tone and editorial standards — loaded as a task prerequisite |
+| `app/shared/` (other) | `common-patterns.md`, `deposit-templates.md` — task-level shared context |
 | `reference/` | Maintenance records — friction log, design rationale, managed projects |
 | `.claude/skills/` | Skill wrappers — framework (thin) and domain (self-contained) |
 | `config.md` | User preferences (gitignored) |
