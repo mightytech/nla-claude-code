@@ -36,6 +36,28 @@ Not all fields are required. Use what's relevant.
 
 [Newest first]
 
+#### 2026-10-28: Decision summaries presented options instead of a recommendation
+
+- **Type:** process
+- **Severity:** minor
+- **Task:** setup-project
+- **Status:** open
+- **Observation:** After scanning www.amightygirl.com, I presented four open decisions with options for each. The developer's next two replies both asked "what's your read?" / "what do you recommend?" Once I led with recommendations, the conversation moved quickly and the developer's replies got short and decisive. The cardinal rule ("You propose, question, and challenge") was honored either way, but the menu put the work of forming a view on the developer.
+- **Expected:** Lead each decision with a recommendation and its reasoning; the developer accepts, adjusts, or overrides.
+- **Context:** Presenting scan findings and open questions before the deposit plan.
+- **Proposed fix:** Add a line to `app/shared/voice.md` (or the setup flow): "When the developer has a decision to make, lead with your recommendation and why — offer alternatives only when they're realistic."
+
+#### 2026-10-28: Default-mode guardrail forbids edits that setup and install require
+
+- **Type:** documentation
+- **Severity:** minor
+- **Task:** general
+- **Status:** open
+- **Observation:** CLAUDE.md's "What NOT to Do (Default Mode)" says: "Don't edit NLA files (`app/`, `reference/`) — that's what `/maintain` is for." In this session, every edit to those paths was legitimate: `setup-project.md` step 6 requires updating `reference/managed-projects.md`; `/install` updated `app/overview.md` (structure record) and `reference/installed-packages.md`; friction entries and `reference/system-status.md` were updated at close. I flagged the tension to the developer before the install, but as written the guardrail contradicts the tasks it sits beside.
+- **Expected:** The guardrail protects what it's meant to — the NLA's behavior (task docs, patterns, templates, voice) — while allowing records and framework-operation edits.
+- **Context:** Installing process helpers and registering a managed project during a default-mode session.
+- **Proposed fix:** Reword along the lines of: "Don't change the NLA's behavior — task docs, patterns, templates, voice — outside `/maintain`. Records (`managed-projects.md`, friction and session logs, status) and edits made by framework operations (`/install`, `/update`) are expected."
+
 #### 2026-10-28: Setup offers penny post as an optional deposit, but not other installed packages
 
 - **Type:** documentation
