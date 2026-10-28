@@ -61,3 +61,25 @@ Record of NLA packages installed in this project. Maintained by `/install` and `
 | `install/CLAUDE-intent.md` | Path updates. | Already reflected in CLAUDE.md Environment table. |
 
 **Notes:** Pinned at tagged release v0.0.1 (HEAD was at 6a5bba1, 1 commit past — a session-log finalization, not behavioral).
+
+## Process Helpers
+
+**Source:** `packages/nla-process-helpers/` (from https://github.com/mightytech/nla-process-helpers.git)
+**Installed:** 2026-10-28
+**Submodule commit:** `22dee9f` (tag v0.0.1)
+**Package state:** v0.0.1 — pinned to tagged release; HEAD `6b16607` was 1 commit past (session-log finalization only).
+
+### What was done
+
+| Intent File | Integration Point | Changes Made |
+|-------------|------------------|--------------|
+| `install/install.md` | `packages/`, `.gitmodules` | Added as `packages/nla-process-helpers/` submodule (flat, `--depth 1`), checked out v0.0.1. Manifest declares no permission entries (package is in-project, pure conversational logic), so no settings change. |
+| `install/skills-intent.md` | `.claude/skills/` | Created thin wrappers `/unpack`, `/brainstorm-cluster`, `/steelman`, `/devils-advocate` → `packages/nla-process-helpers/app/<skill>.md`. Descriptions taken from the reference implementations, with "Provided by process helpers." appended to match the penny post wrapper convention. |
+| `install/CLAUDE-intent.md` | `CLAUDE.md` | Added the four skills to Available Skills (invocation hints phrased for this NLA's work — deposit plans, convention questions) plus a short note that they layer on active work without switching modes. Added `packages/nla-process-helpers/` to the Environment table. |
+
+Structure record and status docs updated in the same operation: `app/overview.md` (skills table, project tree, `.gitmodules` row, wrapper groups, `packages/` table), `README.md` (project tree), `reference/system-status.md` (skills, packages, recent changes).
+
+### Notes
+
+- Installed at the developer's request during the www.amightygirl.com `/setup-project` session, so the same skills can be deposited into that project as thin wrappers pointing back here.
+- Before this install, the only copy on disk was nested inside the framework's own submodule (`packages/nla-framework/packages/nla-process-helpers/`). Not used — packages are flat, and each NLA pulls its own direct dependencies.

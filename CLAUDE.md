@@ -81,6 +81,12 @@ Config directives are governed by `app/config-spec.md`, which defines what's con
 | `/export` | Export this NLA as a plugin for Claude Code or Cowork | When you're ready to distribute this NLA |
 | `/check-feedback` | Discover and triage feedback from intake channels | After maintenance sessions, or periodically |
 | `/write-letter` | Draft and submit feedback to another project | When learnings from maintenance are worth sharing |
+| `/unpack` | Structure a conversation with bundled threads — lay them out, work through them in order | When a discussion has more threads than it can hold at once |
+| `/brainstorm-cluster` | Structured brainstorming — frame, generate, cluster, evaluate, refine | When a convention or project question needs options explored before committing |
+| `/steelman` | Build the strongest case for the alternatives you're not choosing | When a decision is forming and the unchosen paths deserve a fair hearing |
+| `/devils-advocate` | Systematically find weaknesses in a plan or proposal | When a deposit plan or convention change needs stress-testing |
+
+The last four are facilitation techniques from the process helpers package. They layer on top of whatever you're already doing — setting up a project, refining conventions, maintenance — adding conversation structure without switching modes.
 
 ### If the developer names a project path:
 → Check `reference/managed-projects.md` — if known, enter management conversation. If new, suggest `/setup-project`.
@@ -130,6 +136,7 @@ This NLA uses the NLA Framework at `packages/nla-framework/`.
 | `config/` | Sub-config files (gitignored) |
 | `packages/nla-framework/core/skills/` | Framework skill logic (thin wrappers delegate here) |
 | `packages/nla-penny-post/` | Penny post — feedback conventions and skills |
+| `packages/nla-process-helpers/` | Process helpers — facilitation techniques (`/unpack`, `/brainstorm-cluster`, `/steelman`, `/devils-advocate`) |
 
 ---
 

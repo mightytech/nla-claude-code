@@ -34,6 +34,10 @@ Current state of nla-claude-code.
 | `/code-note` | Active | Domain skill — add code note to managed project |
 | `/check-feedback` | Active | Penny post — discover and triage feedback |
 | `/write-letter` | Active | Penny post — draft and submit feedback |
+| `/unpack` | Active | Process helpers thin wrapper |
+| `/brainstorm-cluster` | Active | Process helpers thin wrapper |
+| `/steelman` | Active | Process helpers thin wrapper |
+| `/devils-advocate` | Active | Process helpers thin wrapper |
 
 ## Managed Projects
 
@@ -45,9 +49,11 @@ None yet. Run `/setup-project` to add the first one.
 |---------|--------|-------|
 | NLA Framework | Installed | Core skill logic via thin wrappers |
 | Penny Post | Installed | Feedback conventions and skills (`/check-feedback`, `/write-letter`) |
+| Process Helpers | Installed | Facilitation techniques (`/unpack`, `/brainstorm-cluster`, `/steelman`, `/devils-advocate`), pinned v0.0.1 |
 
 ## Recent Changes
 
 - 2026-02-19: Initial creation of nla-claude-code
 - 2026-02-19: First maintenance session — architecture review, all findings resolved. Added `/manage-project` skill, installed penny post, created `app/startup.md`, expanded overview pipelines, aligned skill tables.
 - 2026-06-05: Framework update session. Migrated to `packages/` submodule layout (framework pinned v0.0.12, penny-post v0.0.1). Added seven framework skills as thin wrappers: `/check-updates`, `/think`, `/debrief`, `/close`, `/session-checkpoint`, `/guide`, `/export`.
+- 2026-10-28: Installed process helpers (`packages/nla-process-helpers/`, pinned v0.0.1) with four thin wrappers.

@@ -65,6 +65,10 @@ The improvement cycle:
 | `/export` | Export this NLA as a plugin | Framework (thin wrapper) |
 | `/check-feedback` | Discover and triage feedback from intake channels | Penny post (thin wrapper) |
 | `/write-letter` | Draft and submit feedback to another project | Penny post (thin wrapper) |
+| `/unpack` | Structure a conversation with bundled threads | Process helpers (thin wrapper) |
+| `/brainstorm-cluster` | Structured brainstorming — frame, generate, cluster, evaluate, refine | Process helpers (thin wrapper) |
+| `/steelman` | Build the strongest case for unchosen alternatives | Process helpers (thin wrapper) |
+| `/devils-advocate` | Find weaknesses in a plan before committing | Process helpers (thin wrapper) |
 | `/setup-project` | First-time setup of a code project | Domain skill |
 | `/manage-project` | Work on a managed project — process friction, update conventions | Domain skill |
 | `/code-note` | Add a code note to a managed project | Domain skill |
@@ -112,7 +116,7 @@ nla-claude-code/
 ├── CLAUDE.md                    # Runtime identity, modes, execution principles
 ├── README.md                    # Developer-facing introduction
 ├── .gitignore                   # Excludes config.md, config/, .claude/settings.local.json
-├── .gitmodules                  # Submodule pointers (framework, penny-post)
+├── .gitmodules                  # Submodule pointers (framework, penny-post, process-helpers)
 ├── config.md                    # Developer preferences (gitignored)
 ├── config/                      # Sub-config files (gitignored)
 ├── .claude/skills/              # Skill wrappers Claude Code discovers
@@ -126,7 +130,8 @@ nla-claude-code/
 ├── lib/                         # Traditional code helpers (currently sparse)
 ├── packages/                    # Submodule dependencies
 │   ├── nla-framework/           # NLA Framework — core skills, foundations
-│   └── nla-penny-post/          # Penny Post — feedback intake + outbound letters
+│   ├── nla-penny-post/          # Penny Post — feedback intake + outbound letters
+│   └── nla-process-helpers/     # Process Helpers — facilitation techniques
 └── reference/                   # Maintenance records (internal-only)
     ├── design-rationale.md
     ├── friction-log.md          # Pending observations
@@ -146,7 +151,7 @@ nla-claude-code/
 | `CLAUDE.md` | Runtime identity. Default mode (managing code projects), maintenance entry (`/maintain`), execution principles. Loaded automatically by Claude Code. | `[framework default]` per `install/CLAUDE-intent.md`. |
 | `README.md` | Developer-facing introduction. | `[framework default]` per `install/structure-intent.md`. |
 | `.gitignore` | Excludes `config.md`, `config/`, `.claude/settings.local.json`. | `[framework default]`. |
-| `.gitmodules` | Submodule pointers for the framework and penny-post. | `[git/repo convention]`, populated by the packages migration (design-rationale "Migrated to packages/ submodules" 2026-06-05). |
+| `.gitmodules` | Submodule pointers for the framework, penny-post, and process-helpers. | `[git/repo convention]`, populated by the packages migration (design-rationale "Migrated to packages/ submodules" 2026-06-05). |
 | `config.md` | Developer preferences (verbosity, default deposit choices). Gitignored. | `[framework default]` per `install/structure-intent.md`. |
 
 ### `app/` — the application (operative content)
@@ -167,10 +172,11 @@ Two channels in this project: `app/` is what the LLM reads and executes; `refere
 
 ### `.claude/skills/` — skill wrappers
 
-Each wrapper is a short SKILL.md with frontmatter and a delegation pointer. Three groups:
+Each wrapper is a short SKILL.md with frontmatter and a delegation pointer. Four groups:
 
 - **Framework thin wrappers** (delegate to `packages/nla-framework/core/skills/`): `startup`, `maintain`, `friction-log`, `validate`, `preferences`, `install`, `update`, `check-updates`, `think`, `debrief`, `close`, `session-checkpoint`, `guide`, `export`.
 - **Penny post thin wrappers** (delegate to `packages/nla-penny-post/app/`): `check-feedback`, `write-letter`.
+- **Process helpers thin wrappers** (delegate to `packages/nla-process-helpers/app/`): `unpack`, `brainstorm-cluster`, `steelman`, `devils-advocate`.
 - **Domain skills** (full skills, no delegation): `setup-project`, `manage-project`, `code-note`. These exist only here — they're this NLA's purpose.
 
 ### `reference/` — maintenance records (internal)
@@ -195,6 +201,7 @@ Flat (no `--recursive`). Each NLA pulls its own direct dependencies.
 |------|---------|-------------|
 | `packages/nla-framework/` | NLA Framework. Core skill logic and foundations. Pinned to a tagged release. | `[framework default]` per design rationale "Migrated to packages/ submodules" (2026-06-05). |
 | `packages/nla-penny-post/` | Penny Post. Feedback intake and outbound letters. Optional extension. | `[domain decision]` — opt-in extension chosen during first maintenance. |
+| `packages/nla-process-helpers/` | Process Helpers. Facilitation techniques that layer on active work. Optional extension, pinned v0.0.1. | `[domain decision]` — installed 2026-10-28 at developer request during www.amightygirl.com setup. |
 
 ### `lib/`
 

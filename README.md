@@ -54,9 +54,10 @@ nla-claude-code/
 ├── .claude/skills/                   # Skills (framework wrappers + domain skills)
 ├── packages/                         # Installed package submodules
 │   ├── nla-framework/                # NLA Framework (core skills, foundations)
-│   └── nla-penny-post/               # Penny Post (feedback intake + letters)
+│   ├── nla-penny-post/               # Penny Post (feedback intake + letters)
+│   └── nla-process-helpers/          # Process Helpers (facilitation techniques)
 ├── CLAUDE.md                         # Runtime identity
-├── .gitmodules                       # Submodule pointers (framework, penny-post)
+├── .gitmodules                       # Submodule pointers (framework, penny-post, process-helpers)
 └── .gitignore
 ```
 
