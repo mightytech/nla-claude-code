@@ -41,7 +41,7 @@ Current state of nla-claude-code.
 
 ## Managed Projects
 
-None yet. Run `/setup-project` to add the first one.
+- `www.amightygirl.com` (added 2026-10-28) — Magento 1.9 store; see `reference/managed-projects.md`.
 
 ## Installed Packages
 
@@ -57,3 +57,4 @@ None yet. Run `/setup-project` to add the first one.
 - 2026-02-19: First maintenance session — architecture review, all findings resolved. Added `/manage-project` skill, installed penny post, created `app/startup.md`, expanded overview pipelines, aligned skill tables.
 - 2026-06-05: Framework update session. Migrated to `packages/` submodule layout (framework pinned v0.0.12, penny-post v0.0.1). Added seven framework skills as thin wrappers: `/check-updates`, `/think`, `/debrief`, `/close`, `/session-checkpoint`, `/guide`, `/export`.
 - 2026-10-28: Installed process helpers (`packages/nla-process-helpers/`, pinned v0.0.1) with four thin wrappers.
+- 2026-10-28: Set up first managed project, www.amightygirl.com (Magento 1.9).
